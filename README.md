@@ -2,7 +2,7 @@
 
 This is a [bpftrace]-fork program to run locally that turns your keyboard into a noisy typewriter. Keystrokes make a "click" and the enter key makes a "ting".
 
-This works by tracing the Linux tty driver using kprobes.Brendan Gregg first wrote tracing-typewriter tools in [2005](https://github.com/brendangregg/bpf-typewriter).
+This works by tracing the Linux tty driver using kprobes. [Brendan Gregg](ttps://github.com/brendangregg) first wrote tracing-typewriter tools in [2005](https://github.com/brendangregg/bpf-typewriter).
 
 ## Dependencies
 
