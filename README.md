@@ -27,7 +27,7 @@ for meta programming.
 ```
 make first
 ./first 
-./bin/typewriter
+./bin/typewriter-song
 ```
 
 also can be run the daemon on another machine and play the typewriter sound on a stereo setup.
