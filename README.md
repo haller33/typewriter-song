@@ -6,6 +6,7 @@ This works by tracing the Linux tty driver using kprobes. [Brendan Gregg](ttps:/
 
 ## Dependencies
 
+- C Compiler ( [Clang](https://github.com/llvm/llvm-project) )
 - [bpftrace]
 - pipeweire for the `pw-play` command. You can [edit](https://github.com/haller33/typewriter-song/blob/427ee58569e837c6b8a7231f400a7e3771cac28a/src/typewriter-song-daemon.c#L75) the source to use a different audio player.
 
@@ -30,7 +31,16 @@ make first
 ./bin/typewriter-song
 ```
 
-also can be run the daemon on another machine and play the typewriter sound on a stereo setup.
+or just use the old legacy with bpftrace by it self and the daemon to play the sound.
+
+```
+make first
+./first 
+./bin/typewriter-song-daemon &
+./typewriter.bt &
+```
+
+also can be run the daemon on another machine and play the typewriter sound on a stereo setup. ( just need some configuration to set network port and socket conection. )
 
 ## Source
 
