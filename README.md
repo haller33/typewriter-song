@@ -21,7 +21,7 @@ remember that the amount of code used and created may declassify this a fork of 
 
 ## Build
 
-Just use [nobuild](https://github.com/tsoding/nobuild) build system, with some extensions for this project im [particular](https://github.com/haller33/typewriter-song/blob/master/include/nobuild_extended.h), 
+Just use [nobuild](https://github.com/tsoding/nobuild) build system, with some extensions for this project in [particular](https://github.com/haller33/typewriter-song/blob/master/include/nobuild_extended.h), 
 for meta programming.
 
 ```
