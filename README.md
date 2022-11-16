@@ -7,7 +7,7 @@ This works by tracing the Linux tty driver using kprobes. [Brendan Gregg](ttps:/
 ## Dependencies
 
 - [bpftrace]
-- pipeweire for the `pw-play` command. You can edit the source to use a different audio player.
+- pipeweire for the `pw-play` command. You can [edit](https://github.com/haller33/typewriter-song/blob/427ee58569e837c6b8a7231f400a7e3771cac28a/src/typewriter-song-daemon.c#L75) the source to use a different audio player.
 
 ## Wy a "Fork" ?
 
