@@ -10,7 +10,7 @@ This works by tracing the Linux tty driver using kprobes. [Brendan Gregg](ttps:/
 - [bpftrace]
 - pipeweire for the `pw-play` command. You can [edit](https://github.com/haller33/typewriter-song/blob/427ee58569e837c6b8a7231f400a7e3771cac28a/src/typewriter-song-daemon.c#L75) the source to use a different audio player.
 
-## Wy a "Fork" ?
+## Why a "Fork" ?
 
 because the project with bpftrace need root acess and my root user can't play sound on my pipewire 
 configuration, so i created a client-server side, to inform a key press and play the sound on user space. 
