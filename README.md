@@ -7,27 +7,43 @@ This works by tracing the Linux tty driver using kprobes. I first wrote tracing-
 ## Dependencies
 
 - [bpftrace]
-- alsa-utils for the `aplay` command. You can edit the source to use a different audio player.
+- pipeweire for the `pw-play` command. You can edit the source to use a different audio player.
+
+## Wy a "Fork" ?
+
+because the project with bpftrace need root acess and my root user can't play sound on my pipewire 
+configuration, so i created a client-server side, to inform a key press and play the sound on user space. 
+
+also the project have use of a lot of resources because relay on OS process level of fork, to have to play 
+the sound, this project relay on greenthreads for that and single-header files like [stb](github.com/nothings/stb)
+
+remember that the amount of code used and created may desclasify this a fork of project, and maybe another project by it self.
 
 ## Source
 
 Just the code:
 
 ```
-#!/usr/local/bin/bpftrace --unsafe
-#include <uapi/linux/input-event-codes.h>
+#!/usr/bin/bpftrace --unsafe
+/* copy from https://github.com/brendangregg/bpf-typewriter */
 
 kprobe:kbd_event
-/arg1 == EV_KEY && arg3 == 1/
+/arg1 == 1 && arg3 == 1/
 {
-	if (arg2 == KEY_ENTER) {
-		system("aplay -q clink.au >/dev/null 2>&1 &");
-	} else {
-		system("aplay -q click.au >/dev/null 2>&1 &");
-	}
+        if (arg2 == 28) {
+	
+                 system("./bin/typewriter-song-sender ENT&");
+        } else {
+       
+	         system("./bin/typewriter-song-sender &");
+        }
 }
 
 ```
+
+the resource is also a systemd service, and TODO need to make more changes to compile eBPF programs from C source code.
+
+## considerations
 
 I would have traced kbd_rawcode(), but it appears inlined and unavailable to kprobes. The --unsafe option is necessary because this tool is launching commands via system().
 
