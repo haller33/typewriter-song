@@ -17,7 +17,7 @@ configuration, so i created a client-server side, to inform a key press and play
 also the project have use of a lot of resources because relay on OS process level of fork, to have to play 
 the sound, this project relay on greenthreads for that and single-header files like [stb](https://github.com/nothings/stb)
 
-remember that the amount of code used and created may desclasify this a fork of project, and maybe another project by it self.
+remember that the amount of code used and created may declassify this a fork of project, and maybe another project by it self.
 
 ## Build
 
