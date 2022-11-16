@@ -1,0 +1,25 @@
+#!/usr/bin/bpftrace --unsafe
+/* copy from https://github.com/brendangregg/bpf-typewriter
+ * 
+ * typewriter.bt        Noisy typewriter in BPF
+ *
+ * Copyright (c) 2019 Brendan Gregg.
+ * Licensed under the Apache License, Version 2.0 (the "License").
+ *
+ * 22-Dec-2019  Brendan Gregg   Created this.
+ */
+// /arg1 == EV_KEY && arg3 == 1/
+// if you're missing this header, try EV_KEY=1 and KEY_ENTER=28 instead
+// #include <uapi/linux/input-event-codes.h>
+
+kprobe:kbd_event
+/arg1 == 1 && arg3 == 1/
+{
+        if (arg2 == 28) {
+
+                 system("./bin/typewriter-song-sender ENT&");
+        } else {
+                 system("./bin/typewriter-song-sender &");
+
+        }
+}
