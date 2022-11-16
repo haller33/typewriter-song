@@ -1,4 +1,4 @@
-# Typewriter-sond
+# Typewriter-song
 
 This is a [bpftrace]-fork program to run locally that turns your keyboard into a noisy typewriter. Keystrokes make a "click" and the enter key makes a "ting".
 
@@ -18,6 +18,19 @@ also the project have use of a lot of resources because relay on OS process leve
 the sound, this project relay on greenthreads for that and single-header files like [stb](https://github.com/nothings/stb)
 
 remember that the amount of code used and created may desclasify this a fork of project, and maybe another project by it self.
+
+## Build
+
+Just use [nobuild](https://github.com/tsoding/nobuild) build system, with some extensions for this project im [particular](https://github.com/haller33/typewriter-song/blob/master/include/nobuild_extended.h), 
+for meta programming.
+
+```
+make first
+./first 
+./bin/typewriter
+```
+
+also can be run the daemon on another machine and play the typewriter sound on a stereo setup.
 
 ## Source
 
