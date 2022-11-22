@@ -1,7 +1,6 @@
 #define NOBUILD_IMPLEMENTATION
 #include "./include/nobuild.h"
 #include "./include/nobuild_extended.h"
-#include "./lib/tinycthread.h"
 
 #define CC "clang"
 #define BIN_PATH "bin"
@@ -22,17 +21,6 @@
 
 thrd_t work_gthread_id;
 
-void create_greenthread ( void ) {
-
-  thrd_create((thrd_t *)&work_gthread_id,
-	      (thrd_start_t)check_instaled_program, (void*)0);
-}
-
-void join_threads ( void ) {
-
-  thrd_join (work_gthread_id, NULL); 
-}
-
 void
 build_file(const char *tool, int debug_info) {
   
@@ -48,8 +36,6 @@ build_file(const char *tool, int debug_info) {
     debug_info_bin = "-g";
   }
   
-  join_threads ( );
-
 #ifndef _WIN32
   CMD(CC, CFLAGS, debug_info_bin, "-o", NOEXT(bin_path), tool_path);
 #else
@@ -100,7 +86,7 @@ main (int argc, char **argv) {
 
   GO_REBUILD_URSELF ( argc, argv );
 
-  create_greenthread (  );
+  check_instaled_program (  );
   
   if (argc == 1) {
 
@@ -128,6 +114,7 @@ main (int argc, char **argv) {
       ERRO(msg_err);
     }
   }
+
   return 0;
 }
 

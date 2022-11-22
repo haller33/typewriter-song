@@ -26,7 +26,7 @@ Just use [nobuild](https://github.com/tsoding/nobuild) build system, with some e
 for meta programming.
 
 ```
-clang -o first first.c -pthread
+make first
 ./first 
 ./bin/typewriter-song
 ```
@@ -34,7 +34,7 @@ clang -o first first.c -pthread
 or just use the old legacy with bpftrace by it self and the daemon to play the sound.
 
 ```
-clang -o first first.c -pthread
+make first
 ./first 
 ./bin/typewriter-song-daemon &
 ./typewriter.bt &
