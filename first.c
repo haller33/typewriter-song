@@ -19,8 +19,6 @@
 
 #define PERMA_CLEAN TRUE_T
 
-thrd_t work_gthread_id;
-
 void
 build_file(const char *tool, int debug_info) {
   
